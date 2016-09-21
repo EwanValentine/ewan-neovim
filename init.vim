@@ -102,8 +102,6 @@ Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'fatih/vim-go'
 Plug 'joshdick/onedark.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 nnoremap <C-p> :FZF<CR>
@@ -125,10 +123,9 @@ if (empty($TMUX))
   endif
 endif
 
+" Style
 syntax on
 colorscheme onedark
-
-let g:airline#extensions#tabline#enabled = 1
 
 " Spacing
 autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
@@ -139,3 +136,19 @@ autocmd FileType go set tabstop=4|set shiftwidth=4|set noexpandtab
 " Misc
 set nohlsearch
 
+function! DefaultWorkspace()
+
+    " Rough num columns to decide between laptop and big monitor screens
+    let numcol = 3
+
+		autocmd VimEnter * NERDTree
+		autocmd VimEnter * wincmd p
+
+		rightb vsp term://zsh
+		file Shell
+
+endfunction
+
+:au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+
+command! -register DefaultWorkspace call DefaultWorkspace()
