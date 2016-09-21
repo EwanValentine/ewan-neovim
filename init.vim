@@ -127,6 +127,9 @@ endif
 syntax on
 colorscheme onedark
 
+set tabstop=2
+set shiftwidth=2
+
 " Spacing
 autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
 autocmd FileType php set tabstop=4|set shiftwidth=4|set noexpandtab
