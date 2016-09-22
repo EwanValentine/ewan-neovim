@@ -165,9 +165,6 @@ let g:airline_right_sep = ' '
 let g:airline_right_alt_sep = '|'
 let g:airline_theme= 'onedark'
 
-map . :bprevious<CR>
-map / :bnext<CR>
-
 function! DefaultWorkspace()
 
     " Rough num columns to decide between laptop and big monitor screens
@@ -176,7 +173,8 @@ function! DefaultWorkspace()
 		autocmd VimEnter * NERDTree
 		autocmd VimEnter * wincmd p
 
-		rightb vsp term://zsh
+		sp term://zsh
+    resize 8
 		file Shell
 
 endfunction
