@@ -131,13 +131,20 @@ set tabstop=2
 set shiftwidth=2
 
 " Spacing
-autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
-autocmd FileType php set tabstop=4|set shiftwidth=4|set noexpandtab
-autocmd FileType python set tabstop=4|set shiftwidth=4|set noexpandtab
-autocmd FileType go set tabstop=4|set shiftwidth=4|set noexpandtab
+autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType php set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType go set tabstop=4|set shiftwidth=4|set expandtab
 
 " Misc
 set nohlsearch
+set showcmd
+set showmode
+set linespace=0
+set number
+set expandtab
+set splitbelow          " Horizontal split below current.
+set splitright          " Vertical split to right of current.
 
 function! DefaultWorkspace()
 
