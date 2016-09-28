@@ -104,6 +104,7 @@ Plug 'fatih/vim-go'
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-fugitive'
 call plug#end()
 
 nnoremap <C-p> :FZF<CR>
