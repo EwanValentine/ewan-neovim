@@ -47,7 +47,7 @@
   "You should not put any user code in there besides modifying the variable
   "values.
   " Map the leader key to <Space>
-  let g:mapleader = ' '
+  let g:mapleader = ','
   " Shorten the time before the vim-leader-guide buffer appears
   set timeoutlen=100
   " Enable line numbers
@@ -147,6 +147,9 @@ set number
 set expandtab
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
+
+" Set clipboard
+set clipboard=unnamed
 
 " Open buffer menu
 nnoremap <Leader>b :CtrlPBuffer<CR>
