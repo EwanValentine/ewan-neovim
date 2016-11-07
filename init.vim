@@ -48,6 +48,7 @@
   "values.
   " Map the leader key to <Space>
   let g:mapleader = ','
+  let mapleader = ','
   " Shorten the time before the vim-leader-guide buffer appears
   set timeoutlen=100
   " Enable line numbers
@@ -105,6 +106,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-fugitive'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 nnoremap <C-p> :FZF<CR>
@@ -168,6 +170,15 @@ let g:airline_left_alt_sep = '|'
 let g:airline_right_sep = ' '
 let g:airline_right_alt_sep = '|'
 let g:airline_theme= 'onedark'
+
+" Go highlighting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 
 function! DefaultWorkspace()
 
