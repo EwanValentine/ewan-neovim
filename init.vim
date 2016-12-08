@@ -47,10 +47,10 @@
   "You should not put any user code in there besides modifying the variable
   "values.
   " Map the leader key to <Space>
-  let g:mapleader = ','
-  let mapleader = ','
+  let g:mapleader = ' '
+  let mapleader = ' '
   " Shorten the time before the vim-leader-guide buffer appears
-  set timeoutlen=100
+  set timeoutlen=200
   " Enable line numbers
   " Set 7 lines to the cursor - when moving vertically using j/k
   set scrolloff=7
@@ -105,11 +105,36 @@ Plug 'fatih/vim-go'
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'rakr/vim-one'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 call plug#end()
 
+" Fuzzy search
 nnoremap <C-p> :FZF<CR>
+
+" Neocomplete
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 " Plugins
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -128,9 +153,15 @@ if (empty($TMUX))
   endif
 endif
 
+" Set auto-complete to be enabled at start-up
+let g:deoplete#enable_at_startup = 1
+
+" Auto-complete brackets and shit
+let g:AutoPairsFlyMode = 1
+
 " Style
 syntax on
-colorscheme onedark
+colorscheme one
 
 set tabstop=2
 set shiftwidth=2
@@ -159,6 +190,12 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 " Open most recently used files
 nnoremap <Leader>f :CtrlPMRUFiles<CR>
 
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :wq<CR>
+
+inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr><s-tab> pumvisible() ? "\<C-p>" : "\<C-k>"
+
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#left_sep = ' '
@@ -169,7 +206,7 @@ let g:airline_left_sep = ' '
 let g:airline_left_alt_sep = '|'
 let g:airline_right_sep = ' '
 let g:airline_right_alt_sep = '|'
-let g:airline_theme= 'onedark'
+let g:airline_theme='one'
 
 " Go highlighting
 let g:go_highlight_functions = 1
