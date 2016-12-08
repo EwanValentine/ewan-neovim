@@ -156,9 +156,6 @@ endif
 " Set auto-complete to be enabled at start-up
 let g:deoplete#enable_at_startup = 1
 
-" Auto-complete brackets and shit
-let g:AutoPairsFlyMode = 1
-
 " Style
 syntax on
 colorscheme one
@@ -193,8 +190,8 @@ nnoremap <Leader>f :CtrlPMRUFiles<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :wq<CR>
 
-inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr><s-tab> pumvisible() ? "\<C-p>" : "\<C-k>"
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
